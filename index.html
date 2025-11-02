@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>OKIENAK | Notes</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#7A00FF;--l:#F0E6FF;--b:#F5F7FA;--t:#333;--e:#ff0000;--s:#28a745;--sh:rgba(0,0,0,.08);--yt:#ff0000;}*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif;transition: all .3s ease-in-out;}html,body{min-height:100%;background:var(--b);display:flex;flex-direction:column;align-items:center;padding:20px 0;color:var(--t);}a{color:var(--p);text-decoration:none;font-weight:500;}p{word-break:break-all;}h1 a{color:inherit;}h1{text-align:center;color:var(--p);margin-bottom:1.5rem;font-weight:700;}input,textarea,button,.tab button{width:100%;border-radius:10px;border:1px solid #e0e0e0;padding:.8rem;margin-bottom:1rem;font-size:1rem;font-weight:500;transition: all .2s ease;background:#fff;color:var(--t);}input:focus,textarea:focus{border-color:var(--p);box-shadow:0 0 0 2px var(--l);}button{background:var(--p);color:#fff;cursor:pointer;border:none;font-weight:600;}button:hover{filter:brightness(1.1);transform:translateY(-1px);}.tab{display:flex;margin-bottom:1.5rem;border-radius:12px;background:var(--l);padding:5px;}.tab button{flex:1;margin:0;background:transparent;color:var(--p);border:none;padding:.7rem;border-radius:8px;font-weight:600;}.active-tab{background:var(--p)!important;color:#fff!important;font-weight:700!important;}.hidden{display:none!important;}.container{width:95%;max-width:900px;background:#fff;border-radius:16px;padding:2rem;box-shadow:0 8px 30px var(--sh);margin-bottom:20px;color:var(--t);transition:opacity .3s ease-in-out;}
+/* FIX: Memastikan hanya satu kontainer yang menguasai ruang vertikal */
+#aC, #nC {margin-top: 0; position: relative;}
+#aC.hidden, #nC.hidden {position: absolute!important; opacity: 0!important; pointer-events: none;}
+.note-card{background:var(--l);border-radius:10px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 8px rgba(0,0,0,.05);color:var(--t);}
+.note-card p{font-weight:500;line-height:1.7;max-width:40ch;white-space:pre-wrap;word-wrap:break-word;word-break:break-all;margin-bottom:.75rem;}
+.note-card.editing{padding:1rem;}.note-card.editing .note-content-container{flex-direction:column;gap:10px;}.note-card.editing textarea{min-height:150px;margin:0;}.note-card.editing input{margin:0;}.note-card.editing .na{margin-top:10px;}
+.note-card.public-view p{max-width:50ch!important;}.na{display:flex;justify-content:flex-end;gap:8px;}.na button,.na a{width:auto;padding:.5rem .9rem;margin-bottom:0;font-size:.85rem;border-radius:6px;font-weight:500;background:var(--p);color:#fff;}.btn-delete{background:var(--e);}.btn-delete:hover{background:#c93030;}.btn-cancel{background:#bdc3c7;color:var(--t);}.btn-cancel:hover{background:#a5acb0;}footer{margin-top:auto;text-align:center;color:#888;font-size:.9rem;padding:20px 20px 0;max-width:900px;width:95%;}.fl{margin-top:10px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;}
+.yt-btn{background:var(--yt);color:#fff;padding:0.5rem 1.2rem;border-radius:50px;display:inline-flex;align-items:center;font-size:1em;line-height:1;font-weight:700;transition: all .2s ease;}.yt-btn:hover{filter:brightness(1.1);color:#fff;}.fc{margin-top:15px;margin-bottom:15px;}#tc{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:1000;}.toast{background:#333;color:#fff;padding:12px 20px;border-radius:8px;opacity:0;transition:opacity .3s ease-in-out,transform .3s ease-in-out;transform:translateY(20px);font-weight:500;box-shadow:0 4px 12px rgba(0,0,0,.2);}.toast.show{opacity:1;transform:translateY(0);}.toast.success{background:var(--s);}.toast.error{background:var(--e);}.toast.info{background:var(--p);}</style>
+</head>
+<body>
+<div class="container" id="aC"><h1><a href="https://youtube.com/@okienak" target="_blank">🔑 OKIENAK</a></h1><div class="tab"><button id="lT" class="active-tab">Login</button><button id="rT">Register</button></div><div id="lF"><input id="lE" type="text" placeholder="Email"><input id="lP" type="password" placeholder="Password"><button id="lB">Login</button></div><div id="rF" class="hidden"><input id="rE" type="text" placeholder="Email"><input id="rP" type="password" placeholder="Password (Min. 3 characters)"><input id="rCP" type="password" placeholder="Confirm Password"><button id="rB">Register Account</button></div></div>
+<div class="container hidden" id="nC"><h1><a href="https://youtube.com/@okienak" target="_blank">📝 Notes by OKIENAK</a></h1><p style="font-size:1.1rem;margin-bottom:1rem;font-weight:500;">Hello, <strong id="uN" style="color:var(--p);font-weight:700;"></strong></p><textarea id="nI" placeholder="Write a new note here..."></textarea><input id="nPI" type="password" placeholder="Optional Password (for Share URL)"><button id="aNB">Add Note</button><div id="nL" style="margin-top:1rem;"></div><button id="lB2" class="btn-delete" style="margin-top:1rem;">Logout</button></div>
+<footer><div class="fl"><a href="https://www.youtube.com/@okiraenak" target="_blank" class="yt-btn">SUBSCRIBE</a><a href="https://www.youtube.com/@kaisarvidey" target="_blank" class="yt-btn">SUBSCRIBE</a></div><div class="fc">© 2024 <a href="https://youtube.com/@okienak" target="_blank">OKIENAK</a> | Contact: <a href="mailto:cidmomo19@gmail.com">cidmomo19@gmail.com</a></div></footer><div id="tc"></div>
+
+<script>
+const D={aC:document.getElementById("aC"),nC:document.getElementById("nC"),lT:document.getElementById("lT"),rT:document.getElementById("rT"),lE:document.getElementById("lE"),lP:document.getElementById("lP"),lB:document.getElementById("lB"),rE:document.getElementById("rE"),rP:document.getElementById("rP"),rCP:document.getElementById("rCP"),rB:document.getElementById("rB"),uN:document.getElementById("uN"),nI:document.getElementById("nI"),nPI:document.getElementById("nPI"),aNB:document.getElementById("aNB"),nL:document.getElementById("notesList"),lB2:document.getElementById("lB2"),lF:document.getElementById("lF"),rF:document.getElementById("rF"),tC:document.getElementById("tc")};
+
+const gU=()=>JSON.parse(localStorage.getItem("users")||"{}");
+const sU=u=>localStorage.setItem("users",JSON.stringify(u));
+const gLUE=()=>localStorage.getItem("loggedIn");
+const lk=t=>{const p=/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;return t.replace(p,'<a href="$1" target="_blank">$1</a>');}
+
+function sT(m,t='info'){const o=document.createElement('div');o.className=`toast ${t}`;o.textContent=m;D.tC.innerHTML='';D.tC.appendChild(o);setTimeout(()=>o.classList.add('show'),10);setTimeout(()=>{o.classList.remove('show');o.addEventListener('transitionend',()=>o.remove(),{once:true});},4000);}
+
+const l=()=>{D.lT.classList.add("active-tab");D.rT.classList.remove("active-tab");D.lF.classList.remove("hidden");D.rF.classList.add("hidden");};
+const r=()=>{D.rT.classList.add("active-tab");D.lT.classList.remove("active-tab");D.rF.classList.remove("hidden");D.lF.classList.add("hidden");};
+D.lT.addEventListener("click",l);
+D.rT.addEventListener("click",r);
+
+D.rB.addEventListener("click",()=>{const e=D.rE.value.trim();const p=D.rP.value.trim();const cP=D.rCP.value.trim();if(!e||!p||!cP)return sT("Please fill in all fields!",'error');if(p.length<3||p!==cP)return sT("Password min 3 chars and must match!",'error');let u=gU();if(u[e])return sT("Email already registered!",'error');u[e]={password:p,notes:[]};sU(u);sT("Registration successful! Please login.",'success');D.rE.value="";D.rP.value="";D.rCP.value="";l();});
+D.lB.addEventListener("click",()=>{const e=D.lE.value.trim();const p=D.lP.value.trim();let u=gU();if(u[e]&&u[e].password===p){localStorage.setItem("loggedIn",e);sNP(e);D.lE.value="";D.lP.value="";sT(`Welcome back, ${e.split('@')[0]}!`,'success');}else sT("Incorrect email or password!",'error');});
+D.lB2.addEventListener("click",()=>{if(confirm("Are you sure you want to log out?")){localStorage.removeItem("loggedIn");location.reload();}});
+
+function sNP(e){D.aC.classList.add("hidden");D.nC.classList.remove("hidden");D.uN.textContent=e.split('@')[0];rN();}
+D.aNB.addEventListener("click",()=>{const t=D.nI.value.trim();const nP=D.nPI.value.trim();if(!t)return sT("Please write a note first!",'error');const e=gLUE();let u=gU();u[e].notes.unshift({content:t,password:nP||null});sU(u);D.nI.value="";D.nPI.value="";rN();sT("Note added successfully!",'success');});
+
+function dN(i){if(!confirm("Are you sure you want to delete this note?"))return;const e=gLUE();let u=gU();u[e].notes.splice(i,1);sU(u);rN();sT("Note deleted.",'info');}
+function uN(i,nT,nP){const e=gLUE();let u=gU();if(!u[e].notes[i])return sT("Error: Note not found.",'error');u[e].notes[i].content=nT;u[e].notes[i].password=nP||null;sU(u);rN();sT("Note updated successfully!",'success');}
+function sE(i){const c=document.querySelector(`.note-card[data-index="${i}"]`);if(!c)return;const nCC=c.querySelector('.note-content-container');const n=gU()[gLUE()].notes[i];if(c.classList.contains('editing'))return;c.classList.add('editing');
+nCC.innerHTML=`<textarea class="edit-textarea">${n.content}</textarea><input type="password" class="edit-password" placeholder="Password (Leave blank if none)" value="${n.password||''}">`;
+c.querySelector('.na').innerHTML=`<button class="btn-save" data-index="${i}">Save</button><button class="btn-cancel" data-index="${i}">Cancel</button>`;
+const tA=c.querySelector('.edit-textarea');tA.focus();c.querySelector('.btn-save').addEventListener('click',e=>{const nT=tA.value.trim();const nP=c.querySelector('.edit-password').value.trim();if(!nT)return sT("Note cannot be empty!",'error');uN(e.target.dataset.index,nT,nP);});c.querySelector('.btn-cancel').addEventListener('click',()=>rN());}
+
+function rN(){D.nL.innerHTML="";const e=gLUE();let u=gU();if(!u[e]||!u[e].notes)return;let n=u[e].notes;if(n.length===0){D.nL.innerHTML=`<div style="text-align:center;padding:2rem;color:#888;border:2px dashed #ddd;border-radius:10px;"><h3 style="color:var(--p);font-weight:600;">👋 Start Your First Note!</h3><p style="margin-top:.5rem;">Write something above and click "Add Note".</p></div>`;return;}n.forEach((nO,i)=>{const isL=!!nO.password;const div=document.createElement("div");div.className="note-card";div.setAttribute('data-index',i);div.innerHTML=`<strong style="color:${isL?'var(--e)':'var(--p)'};font-weight:600;">${isL?'🔒 Locked Note':'Regular Note'}</strong><div class="note-content-container"><p>${lk(nO.content)}</p></div><div class="na"><button class="btn-edit" data-index="${i}">Edit</button><a href="?n=${e}-${i}" target="_blank" style="background:var(--p);color:white;padding:.5rem .9rem;border-radius:6px;font-weight:500;">Share (URL)</a><button class="btn-delete" data-index="${i}">Delete</button></div>`;D.nL.appendChild(div);});D.nL.querySelectorAll(".btn-delete").forEach(btn=>btn.addEventListener("click",e=>dN(e.target.dataset.index)));D.nL.querySelectorAll(".btn-edit").forEach(btn=>btn.addEventListener("click",e=>sE(e.target.dataset.index)));}
+
+function rPN(nO,e){if(!nO||!('content'in nO))return D.nL.innerHTML=`<h2 style="color:var(--e);text-align:center;">Error: Invalid note.</h2>`;if(!!nO.password){D.nL.innerHTML=`<h2 style="color:var(--p);text-align:center;">🔒 Locked Note</h2><div class="note-card" style="background:var(--l);border:1px solid var(--e);"><p style="text-align:center;">This note is protected by ${e.split('@')[0]}.</p><input type="password" id="sP" placeholder="Enter Note Password"><button id="uB" style="margin-top:.5rem;">Unlock Note</button></div><button id="cNR" style="margin-top:1rem;background:var(--p);">Create New Note</button>`;document.getElementById('uB').addEventListener('click',()=>{const eP=document.getElementById('sP').value.trim();if(eP===nO.password)rC(nO.content,e,true);else sT("Incorrect password!",'error');});}else rC(nO.content,e,true);if(document.getElementById('cNR'))document.getElementById('cNR').addEventListener('click',()=>window.location.href=window.location.origin+window.location.pathname);}
+
+function rC(c,e,sCB=false){D.nL.innerHTML=`<h2 style="color:var(--p);text-align:center;">Shared Note</h2><div class="note-card public-view"><div class="note-content-container"><p>${lk(c)}</p></div></div><div style="text-align:center;font-size:.9rem;color:#888;"><p>Shared by user ${e.split('@')[0]}.</p></div>`;if(sCB){let cNR=document.getElementById('cNR');if(!cNR){D.nL.insertAdjacentHTML('afterend',`<button id="cNR" style="margin-top:1rem;background:var(--p);">Create New Note</button>`);cNR=document.getElementById('cNR');}cNR.addEventListener('click',()=>window.location.href=window.location.origin+window.location.pathname);}document.querySelector('#nC h1').textContent="Public Note";}
+
+window.addEventListener("load",()=>{
+    try {
+        const l=gLUE();const p=new URLSearchParams(window.location.search);const nP=p.get("n");
+        if(nP){
+            const[e,i]=nP.split("-");let u=gU();
+            if(u[e]&&u[e].notes&&u[e].notes[i]){
+                D.aC.classList.add("hidden");D.nC.classList.remove("hidden");
+                document.querySelector('#nC p').style.display="none";D.nI.style.display="none";D.nPI.style.display="none";D.aNB.style.display="none";D.lB2.style.display="none";
+                document.querySelector('#nC h1').textContent="Public Note";rPN(u[e].notes[i],e);
+            }else{sT("Error: Invalid or deleted note link.",'error');D.aC.classList.remove("hidden");}
+        }else if(l)sNP(l);else D.aC.classList.remove("hidden");
+    } catch(error) {
+        sT("Critical Error: Cannot access Local Storage. Try clearing cache or use Incognito mode.", 'error');
+        D.aC.classList.remove("hidden");
+    }
+});
+</script></body></html
